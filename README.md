@@ -1,5 +1,8 @@
 # Install commons tools
 ```
+
+sudo apt update
+
 # install awscli
 aws --version >/dev/null 2>&1
 [[ $? != 0 ]] && sudo apt-get install awscli -y
