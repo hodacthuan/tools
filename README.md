@@ -146,6 +146,7 @@ if [[ $REMMINA == '' ]]; then
     sudo apt install remmina -y
 fi
 
+
 ```
 
 # Install Lens Open Source Project
@@ -169,4 +170,37 @@ sudo apt install ./google-chrome-stable_current_amd64.deb
 sudo apt install ./teams_1.5.00.23861_amd64.deb
 sudo chmod +x ./nosqlbooster4mongo-8.0.2.AppImage
 
+```
+
+# Install Lens Open Source Project
+```
+LINT="$(code --list-extensions | grep 'dbaeumer.vscode-eslint')"
+if [[ $LINT != 'dbaeumer.vscode-eslint' ]]; then 
+    echo "Install vscode-extension"
+    code --install-extension michelemelluso.code-beautifier
+    code --install-extension mrmlnc.vscode-scss
+    code --install-extension dbaeumer.vscode-eslint
+    code --install-extension donjayamanne.githistory
+    code --install-extension eamodio.gitlens
+    code --install-extension ms-python.python
+    code --install-extension ms-azuretools.vscode-docker
+    
+    code --list-extensions
+fi
+
+```
+
+## Setting VsCode
+
+- Install pep8
+```
+pip install pep8
+pip install --upgrade autopep8
+```
+- Goto File-> Preferences -> Settings
+- Search for "python.formatting.autopep8Args"
+- Add two items below:
+```
+    --max-line-length
+    12000
 ```
