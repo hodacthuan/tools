@@ -154,8 +154,11 @@ bash install_lens.sh
 # Install google chrome, vscode, Teams, NoSQL for MongoDB
 
 https://www.google.com/intl/vi/chrome/
+
 https://www.microsoft.com/en-us/microsoft-teams/download-app#desktopAppDownloadregion
+
 https://code.visualstudio.com/download
+
 https://nosqlbooster.com/downloads
 ```
 sudo apt install ./code_1.75.0-1675266613_amd64.deb
