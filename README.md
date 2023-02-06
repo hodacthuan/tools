@@ -146,6 +146,15 @@ if [[ $REMMINA == '' ]]; then
     sudo apt install remmina -y
 fi
 
+GCLOUD=`which gcloud`
+if [[ -z ${GCLOUD} ]]; then
+    echo "Installing gcloud"
+    curl -O https://dl.google.com/dl/cloudsdk/channels/rapid/downloads/google-cloud-sdk-376.0.0-linux-x86_64.tar.gz
+    tar -xf google-cloud-sdk-376.0.0-linux-x86_64.tar.gz
+    ./google-cloud-sdk/install.sh
+fi
+
+
 
 ```
 
