@@ -152,6 +152,8 @@ if [[ -z ${GCLOUD} ]]; then
     curl -O https://dl.google.com/dl/cloudsdk/channels/rapid/downloads/google-cloud-sdk-376.0.0-linux-x86_64.tar.gz
     tar -xf google-cloud-sdk-376.0.0-linux-x86_64.tar.gz
     ./google-cloud-sdk/install.sh
+
+    gcloud components install gke-gcloud-auth-plugin
 fi
 
 
