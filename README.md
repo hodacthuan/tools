@@ -202,6 +202,7 @@ fi
 - Install pep8
 ```sh
 pip install pep8
+pip install autopep8
 pip install --upgrade autopep8
 ```
 - Goto File-> Preferences -> Settings
