@@ -1,13 +1,9 @@
 # Install commons tools
-```
+```sh
 
 sudo apt update
 
-# install awscli
-aws --version >/dev/null 2>&1
-[[ $? != 0 ]] && sudo apt-get install awscli -y
-
-# install redis-cli
+# Install redis-cli
 redis-cli --version >/dev/null 2>&1
 [[ $? != 0 ]] && sudo apt-get install redis-tools -y
 
@@ -161,7 +157,7 @@ fi
 ```
 
 # Install Lens Open Source Project
-```
+```sh
 cd lens
 bash install_lens.sh
 ```
@@ -175,7 +171,7 @@ https://www.microsoft.com/en-us/microsoft-teams/download-app#desktopAppDownloadr
 https://code.visualstudio.com/download
 
 https://nosqlbooster.com/downloads
-```
+```sh
 sudo apt install ./code_1.75.0-1675266613_amd64.deb
 sudo apt install ./google-chrome-stable_current_amd64.deb
 sudo apt install ./teams_1.5.00.23861_amd64.deb
@@ -184,7 +180,7 @@ sudo chmod +x ./nosqlbooster4mongo-8.0.2.AppImage
 ```
 
 # Install Lens Open Source Project
-```
+```sh
 LINT="$(code --list-extensions | grep 'dbaeumer.vscode-eslint')"
 if [[ $LINT != 'dbaeumer.vscode-eslint' ]]; then 
     echo "Install vscode-extension"
@@ -204,7 +200,7 @@ fi
 ## Setting VsCode
 
 - Install pep8
-```
+```sh
 pip install pep8
 pip install --upgrade autopep8
 ```
