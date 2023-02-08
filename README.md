@@ -31,13 +31,24 @@ if [[ $BAMBOO == '' ]]; then
     sudo apt install -y ibus ibus-bamboo
 fi
 
-TERMINATOR="$(apt-cache policy awscli)"
+TERMINATOR="$(apt-cache policy terminator)"
 if [[ $TERMINATOR == '' ]]; then 
 
     sudo apt update
-    sudo apt install -y timeshift git curl terminator git-flow htop golang nodejs npm awscli jq --install-recommends
+    sudo apt install -y timeshift git curl terminator git-flow htop golang nodejs npm jq --install-recommends
     sudo snap install postman
     sudo npm i -g eslint@3.19.0 eslint-plugin-security
+fi
+
+
+AWS=$(which aws)
+if [[ $AWS == '' ]]; then
+    apt-get install curl unzip -y
+    curl "https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip" -o "awscliv2.zip"
+    unzip awscliv2.zip
+
+    sudo ./aws/install
+
 fi
 
 FIREWALL="$(sudo ufw status)"
