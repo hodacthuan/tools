@@ -223,3 +223,47 @@ pip install --upgrade autopep8
     --max-line-length
     12000
 ```
+
+## Bin
+
+```bash
+
+
+function installTools() {
+    curl "https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip" -o "awscliv2.zip"
+    unzip -o awscliv2.zip
+    sudo ./aws/install
+
+    rm -rf aws/
+    rm -rf awscliv2.zip
+    # Install eksctl
+    # Bug in latest https://github.com/weaveworks/eksctl/issues/2270
+    # curl --silent --location "https://github.com/weaveworks/eksctl/releases/download/latest_release/eksctl_$(uname -s)_amd64.tar.gz" | tar xz -C /tmp
+    curl --silent --location "https://github.com/weaveworks/eksctl/releases/download/0.20.0/eksctl_$(uname -s)_amd64.tar.gz" | tar xz -C /tmp
+
+    sudo mv /tmp/eksctl /usr/local/bin
+
+    # Install kubectl
+    #curl --silent -LO https://storage.googleapis.com/kubernetes-release/release/`curl -s https://storage.googleapis.com/kubernetes-release/release/stable.txt`/bin/linux/amd64/kubectl
+    curl --silent -LO https://storage.googleapis.com/kubernetes-release/release/v1.22.0/bin/linux/amd64/kubectl
+    chmod +x ./kubectl
+    sudo mv ./kubectl /usr/local/bin/
+
+    sudo pip install --user --upgrade awscli
+
+    /usr/local/bin/eksctl utils write-kubeconfig --cluster %env.CLUSTER_NAME% --region %env.REGION%
+
+    #sed -i .bak -e 's/v1alpha1/v1beta1/' ~/.kube/config
+    cat ~/.kube/config
+
+    export PATH=$PATH:/usr/local/bin
+
+    curl -fsSL -o get_helm.sh https://raw.githubusercontent.com/helm/helm/master/scripts/get-helm-3
+    chmod 700 get_helm.sh
+    ./get_helm.sh
+    DESIRED_VERSION=v3.8.2 bash get_helm.sh
+
+    rm -rf ./get_helm.sh
+}
+
+```
