@@ -163,7 +163,16 @@ if [[ -z ${GCLOUD} ]]; then
     gcloud components install gke-gcloud-auth-plugin
 fi
 
-
+OPSWATCLIENT=`which opswat-client`
+if [[ -z ${OPSWATCLIENT} ]]; then
+    echo 'Install opswat client'
+    sudo wget -qO- https://s3-us-west-2.amazonaws.com/opswat-gears-cloud-clients-beta/linux_installer/latest/opswatclient_deb.tar | sudo tar xvf -
+    sudo chmod +x opswatclient_deb/setup.sh
+    cd opswatclient_deb
+    sudo ./setup.sh -s=2358 -l=1fe5287dfe1ca8204f330325d1b20bbe
+    cd ..
+    opswat-client -r
+fi
 
 ```
 
