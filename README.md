@@ -40,23 +40,6 @@ sudo apt update
 redis-cli --version >/dev/null 2>&1
 [[ $? != 0 ]] && sudo apt-get install redis-tools -y
 
-BEEKEEPER="$(apt-cache policy beekeeper-studio)"
-if [[ $BEEKEEPER == '' ]]; then 
-    echo "Install beekeeper-studio"
-    wget --quiet -O - https://deb.beekeeperstudio.io/beekeeper.key | sudo apt-key add -
-    echo "deb https://deb.beekeeperstudio.io stable main" | sudo tee /etc/apt/sources.list.d/beekeeper-studio-app.list
-    sudo apt update
-    sudo apt install -y beekeeper-studio
-fi
-
-TELEGRAM="$(apt-cache policy telegram)"
-if [[ $TELEGRAM == '' ]]; then 
-    echo "Install telegram"
-    sudo add-apt-repository ppa:atareao/telegram
-    sudo apt update
-    sudo apt install -y telegram
-fi
-
 BAMBOO="$(apt-cache policy ibus-bamboo)"
 if [[ $BAMBOO == '' ]]; then
     echo "Install ibus-bamboo"
@@ -64,15 +47,13 @@ if [[ $BAMBOO == '' ]]; then
     sudo apt install -y ibus ibus-bamboo
 fi
 
-TERMINATOR="$(apt-cache policy terminator)"
+TERMINATOR="$(which git-flow)"
 if [[ $TERMINATOR == '' ]]; then 
-
     sudo apt update
-    sudo apt install -y timeshift git curl terminator git-flow htop golang nodejs npm jq --install-recommends
+    sudo apt install -y git curl terminator git-flow htop golang nodejs npm jq --install-recommends
     sudo snap install postman
     sudo npm i -g eslint@3.19.0 eslint-plugin-security
 fi
-
 
 AWS=$(which aws)
 if [[ $AWS == '' ]]; then
@@ -81,7 +62,6 @@ if [[ $AWS == '' ]]; then
     unzip awscliv2.zip
 
     sudo ./aws/install
-
 fi
 
 FIREWALL="$(sudo ufw status)"
@@ -158,54 +138,6 @@ if [[ $MINIKUBE != 'v1.3.1' ]]; then
     rm -rf ./minikube
 fi
 
-SKAFFOLD=`which skaffold`
-if [[ -z ${SKAFFOLD} ]]; then
-    echo "Installing skaffold"
-    curl -Lo skaffold https://storage.googleapis.com/skaffold/releases/v0.38.0/skaffold-linux-amd64
-    chmod +x skaffold
-    sudo mv skaffold /usr/local/bin
-fi
-
-HELM=`which helm`
-if [[ -z ${HELM} ]]; then
-    echo "Installing helm version v3 "
-    curl https://raw.githubusercontent.com/helm/helm/master/scripts/get-helm-3 | bash
-fi
-
-LIBREOFFICE="$(apt-cache policy libreoffice)"
-if [[ $LIBREOFFICE == '' ]]; then
-    echo "Install libreoffice"
-    sudo add-apt-repository ppa:libreoffice/ppa
-    sudo apt-get update
-    sudo apt-get install libreoffice
-fi
-
-REMMINA="$(apt-cache policy remmina)"
-if [[ $REMMINA == '' ]]; then
-    echo "Install remmina"
-    sudo apt install remmina -y
-fi
-
-GCLOUD=`which gcloud`
-if [[ -z ${GCLOUD} ]]; then
-    echo "Installing gcloud"
-    curl -O https://dl.google.com/dl/cloudsdk/channels/rapid/downloads/google-cloud-sdk-376.0.0-linux-x86_64.tar.gz
-    tar -xf google-cloud-sdk-376.0.0-linux-x86_64.tar.gz
-    ./google-cloud-sdk/install.sh
-
-    gcloud components install gke-gcloud-auth-plugin
-fi
-
-OPSWATCLIENT=`which opswat-client`
-if [[ -z ${OPSWATCLIENT} ]]; then
-    echo 'Install opswat client'
-    sudo wget -qO- https://s3-us-west-2.amazonaws.com/opswat-gears-cloud-clients-beta/linux_installer/latest/opswatclient_deb.tar | sudo tar xvf -
-    sudo chmod +x opswatclient_deb/setup.sh
-    cd opswatclient_deb
-    sudo ./setup.sh -s=2358 -l=1fe5287dfe1ca8204f330325d1b20bbe
-    cd ..
-    opswat-client -r
-fi
 
 
 ```
@@ -305,6 +237,72 @@ pip install --upgrade autopep8
 
 ```bash
 
+
+SKAFFOLD=`which skaffold`
+if [[ -z ${SKAFFOLD} ]]; then
+    echo "Installing skaffold"
+    curl -Lo skaffold https://storage.googleapis.com/skaffold/releases/v0.38.0/skaffold-linux-amd64
+    chmod +x skaffold
+    sudo mv skaffold /usr/local/bin
+fi
+
+HELM=`which helm`
+if [[ -z ${HELM} ]]; then
+    echo "Installing helm version v3 "
+    curl https://raw.githubusercontent.com/helm/helm/master/scripts/get-helm-3 | bash
+fi
+
+LIBREOFFICE="$(apt-cache policy libreoffice)"
+if [[ $LIBREOFFICE == '' ]]; then
+    echo "Install libreoffice"
+    sudo add-apt-repository ppa:libreoffice/ppa
+    sudo apt-get update
+    sudo apt-get install libreoffice
+fi
+
+REMMINA="$(apt-cache policy remmina)"
+if [[ $REMMINA == '' ]]; then
+    echo "Install remmina"
+    sudo apt install remmina -y
+fi
+
+GCLOUD=`which gcloud`
+if [[ -z ${GCLOUD} ]]; then
+    echo "Installing gcloud"
+    curl -O https://dl.google.com/dl/cloudsdk/channels/rapid/downloads/google-cloud-sdk-376.0.0-linux-x86_64.tar.gz
+    tar -xf google-cloud-sdk-376.0.0-linux-x86_64.tar.gz
+    ./google-cloud-sdk/install.sh
+
+    gcloud components install gke-gcloud-auth-plugin
+fi
+
+OPSWATCLIENT=`which opswat-client`
+if [[ -z ${OPSWATCLIENT} ]]; then
+    echo 'Install opswat client'
+    sudo wget -qO- https://s3-us-west-2.amazonaws.com/opswat-gears-cloud-clients-beta/linux_installer/latest/opswatclient_deb.tar | sudo tar xvf -
+    sudo chmod +x opswatclient_deb/setup.sh
+    cd opswatclient_deb
+    sudo ./setup.sh -s=2358 -l=1fe5287dfe1ca8204f330325d1b20bbe
+    cd ..
+    opswat-client -r
+fi
+
+BEEKEEPER="$(apt-cache policy beekeeper-studio)"
+if [[ $BEEKEEPER == '' ]]; then 
+    echo "Install beekeeper-studio"
+    wget --quiet -O - https://deb.beekeeperstudio.io/beekeeper.key | sudo apt-key add -
+    echo "deb https://deb.beekeeperstudio.io stable main" | sudo tee /etc/apt/sources.list.d/beekeeper-studio-app.list
+    sudo apt update
+    sudo apt install -y beekeeper-studio
+fi
+
+TELEGRAM="$(apt-cache policy telegram)"
+if [[ $TELEGRAM == '' ]]; then 
+    echo "Install telegram"
+    sudo add-apt-repository ppa:atareao/telegram
+    sudo apt update
+    sudo apt install -y telegram
+fi
 
 function installTools() {
     curl "https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip" -o "awscliv2.zip"
