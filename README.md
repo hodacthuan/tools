@@ -6,6 +6,7 @@ git-flow
 nodejs
 golang
 cursor ai
+oh-my-zsh
 aws cli
 docker
 docker-compose
@@ -26,6 +27,7 @@ init-mdaas-project
     sm-start
     build image
     up
+
 ```
 
 
