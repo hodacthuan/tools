@@ -146,7 +146,8 @@ if [[ $MINIKUBE != 'v1.3.1' ]]; then
     rm -rf ./minikube
 fi
 
-
+git config --global user.name 'Thuan Ho'
+git config --global user.email 'thuan.ho@opswat.com'
 
 ```
 # Install Microsoft Defender for Endpoint
