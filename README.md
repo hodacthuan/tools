@@ -13,7 +13,7 @@ mdatp
 opswat-client
 add ssh-key
 init-mdaas-project
-    clone 3 repos
+    clone 4 repos: local deploy, et-engines, share-module, protocol
     add .env file to local-repos
     sm-start
     build image
