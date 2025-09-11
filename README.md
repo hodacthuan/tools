@@ -1,4 +1,4 @@
-# Step by step for new device installed
+# Step by step for new device installed checklist
 ```
 google chrome
 terminator
@@ -27,7 +27,8 @@ init-mdaas-project
     sm-start
     build image
     up
-
+update git config
+install ibus-bamboo
 ```
 
 
