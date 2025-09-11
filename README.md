@@ -42,6 +42,11 @@ sudo apt update
 redis-cli --version >/dev/null 2>&1
 [[ $? != 0 ]] && sudo apt-get install redis-tools -y
 
+
+sudo apt install zsh -y
+sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+
+
 BAMBOO="$(apt-cache policy ibus-bamboo)"
 if [[ $BAMBOO == '' ]]; then
     echo "Install ibus-bamboo"
