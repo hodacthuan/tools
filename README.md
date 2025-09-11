@@ -1,5 +1,5 @@
 # Step by step for new device installed
-
+```
 google chrome
 terminator
 cursor ai
@@ -13,7 +13,7 @@ mdatp
 opswat-client
 add ssh-key
 init-mdaas-project
-
+```
 
 
 
