@@ -1,3 +1,23 @@
+# Step by step for new device installed
+
+google chrome
+terminator
+cursor ai
+aws cli
+docker
+docker-compose
+kubectl
+minikube
+lens
+mdatp
+opswat-client
+add ssh-key
+init-mdaas-project
+
+
+
+
+
 # Install commons tools
 ```sh
 
