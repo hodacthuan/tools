@@ -8,9 +8,9 @@ golang
 cursor ai
 oh-my-zsh
 aws cli
-docker
-docker-compose
-kubectl
+docker (28.4.0)
+docker-compose (1.23.1)
+kubectl (v1.34.1)
 minikube
     install minikube latest version (v1.37.0)
     install minikube dependencies
