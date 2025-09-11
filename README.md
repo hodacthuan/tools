@@ -2,6 +2,9 @@
 ```
 google chrome
 terminator
+git-flow
+nodejs
+golang
 cursor ai
 aws cli
 docker
