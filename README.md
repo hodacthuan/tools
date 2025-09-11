@@ -9,6 +9,7 @@ docker-compose
 kubectl
 minikube
 lens
+wifi-wanet
 mdatp
 opswat-client
 add ssh-key
