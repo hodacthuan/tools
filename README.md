@@ -12,6 +12,7 @@ lens
 mdatp
 opswat-client
 add ssh-key
+    ssh-keygen -t rsa -b 4096
 init-mdaas-project
     clone 4 repos: local deploy, et-engines, share-module, protocol
     add .env file to local-repos
