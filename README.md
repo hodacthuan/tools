@@ -8,8 +8,11 @@ docker
 docker-compose
 kubectl
 minikube
+    install minikube latest version (v1.37.0)
+    install minikube dependencies
 lens
 wifi-wanet
+mdaas-vpn
 mdatp
 opswat-client
 add ssh-key
