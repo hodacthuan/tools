@@ -175,6 +175,28 @@ if [[ -z ${OPSWATCLIENT} ]]; then
 fi
 
 ```
+# Install cursor
+
+Install dependencies
+
+sudo apt install libfuse2
+
+Download cursor from this page https://cursor.com/
+
+nano ~/.local/share/applications/cursor.desktop
+
+```
+Name=Cursor
+Exec=/home/thuanho/Applications/Cursor-1.5.11-x86_64.AppImage --no-sandbox
+Icon=utilities-terminal
+Type=Application
+Categories=Utility;
+StartupNotify=true
+Terminal=false
+
+
+```
+
 
 # Install Lens Open Source Project
 ```sh
