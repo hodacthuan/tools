@@ -174,7 +174,20 @@ if [[ -z ${OPSWATCLIENT} ]]; then
     opswat-client -r
 fi
 
+
 ```
+# Install Microsoft Defender for Endpoint
+
+```
+wget -q https://packages.microsoft.com/config/ubuntu/$(lsb_release -rs)/prod.list -O /etc/apt/sources.list.d/microsoft-prod.list
+wget -q https://packages.microsoft.com/keys/microsoft.asc -O- | sudo apt-key add -
+sudo apt-get update
+sudo apt-get install -y mdatp
+
+
+```
+
+
 # Install cursor
 
 Install dependencies
