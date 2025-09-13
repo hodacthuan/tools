@@ -1,6 +1,6 @@
-# Step by step for new device installed checklist
+# New device installed checklist
 ```
-google chrome
+Install google chrome
 terminator
 git-flow
 nodejs
