@@ -183,6 +183,7 @@ Download cursor from this page https://cursor.com/
 nano ~/.local/share/applications/cursor.desktop
 
 ```
+[Desktop Entry]
 Name=Cursor
 Exec=/home/thuanho/Applications/Cursor-1.5.11-x86_64.AppImage --no-sandbox
 Icon=utilities-terminal
